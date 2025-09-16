@@ -1,0 +1,43 @@
+{
+  "patients": [
+    {
+      "id": "c74902f1-5b1d-4dad-9a39-554b14e0a249",
+      "name": "breno",
+      "email": "breno@email.com",
+      "phone": "1298292929",
+      "registrationDate": "2025-09-15",
+      "totalConsults": 0,
+      "notes": ""
+    },
+    {
+      "id": "138ee3ad-e88e-4868-b14e-76eb34bcebf9",
+      "name": "lary",
+      "email": "breno@email.com",
+      "phone": "1298292929",
+      "registrationDate": "2025-09-15",
+      "totalConsults": 0,
+      "notes": "joiseajiodjsioajiodasoiasd",
+      "lastConsult": "2025-09-15"
+    },
+    {
+      "id": "b959c520-6ac4-4ff9-9f9d-7e27685cf629",
+      "name": "Teste Unit",
+      "email": "teste@example.com",
+      "phone": "(11) 99999-0000",
+      "registrationDate": "2025-09-15T15:39:01.4437811-03:00",
+      "lastConsult": "",
+      "totalConsults": 0,
+      "notes": "Teste"
+    }
+  ],
+  "appointments": [
+    {
+      "id": "b4b33e7f-2185-4fca-b294-b6828379d281",
+      "patientId": "b959c520-6ac4-4ff9-9f9d-7e27685cf629",
+      "date": "2025-09-16T15:39:01.4689510-03:00",
+      "note": "Consulta teste",
+      "status": "compareceu",
+      "completed": true
+    }
+  ]
+}

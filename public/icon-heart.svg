@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title desc">
+  <title>Ícone - Cuidando com Carinho</title>
+  <desc>Coração estilizado com um símbolo de cuidado</desc>
+  <defs>
+    <linearGradient id="cc-gradient" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#8b5cf6"/>
+      <stop offset="100%" stop-color="#06b6d4"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Coração contornado -->
+  <path d="M32 56C18 46 6 37 6 23c0-7.18 5.82-13 13-13 5.12 0 9.3 2.18 13 7 3.7-4.82 7.88-7 13-7 7.18 0 13 5.82 13 13 0 14-12 23-26 33z"
+        fill="none" stroke="url(#cc-gradient)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- Sinal de + no centro -->
+  <g transform="translate(0,2)">
+    <rect x="29" y="22" width="6" height="14" rx="1.5" fill="#10b981"/>
+    <rect x="24" y="27" width="16" height="6" rx="1.5" fill="#10b981"/>
+  </g>
+</svg>
