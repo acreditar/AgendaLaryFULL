@@ -3,7 +3,7 @@ import type { Connect, ViteDevServer } from 'vite';
 import type http from 'http';
 import react from "@vitejs/plugin-react-swc";
 import path from "path";
-import { componentTagger } from "lovable-tagger";
+// removed lovable-tagger
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
@@ -34,8 +34,7 @@ export default defineConfig(({ mode }) => ({
         });
       }
     },
-    mode === 'development' &&
-    componentTagger(),
+  // lovable-tagger removed
   ].filter(Boolean),
   resolve: {
     alias: {

@@ -7,7 +7,7 @@ const file = envFile ? envFile : join(process.cwd(), 'backend-db.json');
 
 async function init() {
   // Ensure parent dir exists when using a custom path
-  try { await fs.ensureDir(dirname(file)); } catch {}
+  try { await fs.ensureDir(dirname(file)); } catch { }
   await fs.ensureFile(file);
   const stat = await fs.stat(file);
   if (stat.size === 0) {
