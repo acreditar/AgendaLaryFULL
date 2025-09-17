@@ -122,9 +122,9 @@ export default function Agenda({ patients = [], editPatient, createAppointment, 
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-background to-secondary p-6">
+    <div className="min-h-screen bg-gradient-to-br from-background to-secondary p-4 md:p-6">
       <div className="max-w-7xl mx-auto space-y-6">
-        <div className="flex items-center justify-between">
+        <div className="flex items-center justify-between flex-wrap gap-3">
           <div>
             <h1 className="text-3xl font-bold text-foreground">Agenda</h1>
             <p className="text-muted-foreground">Gerencie seus agendamentos</p>
@@ -187,15 +187,15 @@ export default function Agenda({ patients = [], editPatient, createAppointment, 
               ) : (
                 <div className="space-y-3">
                   {todays.map(item => (
-                    <div key={item.appointment.id} className="p-3 border rounded bg-card/50 flex items-center justify-between">
-                      <div>
+                    <div key={item.appointment.id} className="p-3 border rounded bg-card/50 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                      <div className="min-w-0">
                         <div className="flex items-center gap-3">
-                          <div className="font-medium">{item.patientName}</div>
+                          <div className="font-medium truncate">{item.patientName}</div>
                           <Badge variant={item.appointment.status === 'atendido' ? 'secondary' : item.appointment.status === 'nao_compareceu' ? 'destructive' : 'outline'} className="capitalize">{item.appointment.status || 'agendado'}</Badge>
                         </div>
                         <div className="text-sm text-muted-foreground">{isoishToBR(item.appointment.date)}</div>
                       </div>
-                      <div className="flex items-center gap-2">
+                      <div className="flex items-center gap-2 flex-wrap">
                         <PatientDetail
                           patient={patients.find(pt => pt.id === item.patientId)!}
                           onEdit={async (updated) => await editPatient(updated.id, updated)}
@@ -223,15 +223,15 @@ export default function Agenda({ patients = [], editPatient, createAppointment, 
               ) : (
                 <div className="space-y-3">
                   {upcoming.map(item => (
-                    <div key={item.appointment.id} className="p-3 border rounded bg-card/50 flex items-center justify-between">
-                      <div>
+                    <div key={item.appointment.id} className="p-3 border rounded bg-card/50 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                      <div className="min-w-0">
                         <div className="flex items-center gap-3">
-                          <div className="font-medium">{item.patientName}</div>
+                          <div className="font-medium truncate">{item.patientName}</div>
                           <Badge variant={item.appointment.status === 'atendido' ? 'secondary' : item.appointment.status === 'nao_compareceu' ? 'destructive' : 'outline'} className="capitalize">{item.appointment.status || 'agendado'}</Badge>
                         </div>
                         <div className="text-sm text-muted-foreground">{isoishToBR(item.appointment.date)}</div>
                       </div>
-                      <div className="flex items-center gap-2">
+                      <div className="flex items-center gap-2 flex-wrap">
                         <PatientDetail
                           patient={patients.find(pt => pt.id === item.patientId)!}
                           onEdit={async (updated) => await editPatient(updated.id, updated)}

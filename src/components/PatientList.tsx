@@ -121,15 +121,17 @@ export default function PatientList({ patients, addPatient, editPatient, removeP
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-background to-secondary p-6">
+    <div className="min-h-screen bg-gradient-to-br from-background to-secondary p-4 md:p-6">
       <div className="max-w-7xl mx-auto space-y-6">
         {/* Header */}
-        <div className="flex items-center justify-between">
-          <div>
+        <div className="flex items-center justify-between gap-3 flex-wrap">
+          <div className="min-w-0">
             <h1 className="text-3xl font-bold text-foreground">Prontuários</h1>
             <p className="text-muted-foreground">Gerencie todos os seus pacientes</p>
           </div>
-          <PatientForm onSave={handleSavePatient} trigger={<Button className="bg-gradient-to-r from-primary to-primary/90 hover:from-primary/90 hover:to-primary shadow-lg"><Plus className="h-4 w-4 mr-2" />Novo Paciente</Button>} />
+          <div className="w-full sm:w-auto">
+            <PatientForm onSave={handleSavePatient} trigger={<Button className="w-full sm:w-auto bg-gradient-to-r from-primary to-primary/90 hover:from-primary/90 hover:to-primary shadow-lg"><Plus className="h-4 w-4 mr-2" />Novo Paciente</Button>} />
+          </div>
         </div>
 
         {/* Stats Grid */}
@@ -181,22 +183,22 @@ export default function PatientList({ patients, addPatient, editPatient, removeP
         </Card>
 
         {/* Patient Cards */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {filteredPatients.map((patient) => (
             <Card key={patient.id} className="shadow-card hover:shadow-emphasis transition-all duration-300">
               <CardHeader className="pb-4">
-                <div className="flex items-start justify-between">
-                  <div className="flex items-center gap-3">
+                <div className="flex items-start justify-between gap-3">
+                  <div className="flex items-center gap-3 min-w-0">
                     <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center">
                       <User className="h-6 w-6 text-primary" />
                     </div>
-                    <div>
-                      <CardTitle className="text-lg">{patient.name}</CardTitle>
-                      <p className="text-sm text-muted-foreground">{patient.email}</p>
-                      <p className="text-sm text-muted-foreground">{patient.phone}</p>
+                    <div className="min-w-0">
+                      <CardTitle className="text-lg truncate">{patient.name}</CardTitle>
+                      <p className="text-sm text-muted-foreground truncate">{patient.email}</p>
+                      <p className="text-sm text-muted-foreground break-words">{patient.phone}</p>
                     </div>
                   </div>
-                  <div className="text-right text-sm text-muted-foreground">
+                  <div className="text-right text-sm text-muted-foreground shrink-0">
                     <p>Cadastro: {new Date(patient.registrationDate).toLocaleDateString('pt-BR')}</p>
                     <p className="font-medium text-foreground">{patient.totalConsults} consultas</p>
                   </div>
@@ -205,7 +207,7 @@ export default function PatientList({ patients, addPatient, editPatient, removeP
 
               <CardContent className="space-y-4">
                 {/* Status Row */}
-                <div className="grid grid-cols-3 gap-3">
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
                   <div className="space-y-1">
                     <p className="text-xs font-medium text-muted-foreground">Checklist</p>
                     {getStatusBadge(patient.checklistStatus, "checklist")}
@@ -221,14 +223,14 @@ export default function PatientList({ patients, addPatient, editPatient, removeP
                 </div>
 
                 {/* Info Row */}
-                <div className="flex justify-between items-center pt-2 border-t border-border">
-                  <div className="text-sm text-muted-foreground">
+                <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-3 pt-2 border-t border-border">
+                  <div className="text-sm text-muted-foreground min-w-0">
                     <p>Última consulta: {new Date(patient.lastConsult).toLocaleDateString('pt-BR')}</p>
                     {patient.nextAppointment && (
                       <p>Próxima: {new Date(patient.nextAppointment).toLocaleDateString('pt-BR')}</p>
                     )}
                   </div>
-                  <div className="flex gap-2">
+                  <div className="flex gap-2 flex-wrap">
                     <PatientDetail
                       patient={patient}
                       onEdit={handleEditPatient}
@@ -236,7 +238,7 @@ export default function PatientList({ patients, addPatient, editPatient, removeP
                       updateAppointment={updateAppointment}
                       deleteAppointment={deleteAppointment}
                       trigger={
-                        <Button size="sm" variant="outline">
+                        <Button size="sm" variant="outline" className="w-full sm:w-auto">
                           <FileText className="h-4 w-4 mr-1" />
                           Prontuário
                         </Button>
@@ -246,7 +248,7 @@ export default function PatientList({ patients, addPatient, editPatient, removeP
                       patient={patient}
                       onSave={handleSavePatient}
                       trigger={
-                        <Button size="sm" variant="outline">
+                        <Button size="sm" variant="outline" className="w-full sm:w-auto">
                           <Edit className="h-4 w-4 mr-1" />
                           Editar
                         </Button>

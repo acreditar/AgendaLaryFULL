@@ -78,7 +78,6 @@ Período: ago/2025 – set/2025
 	- `vercel.json` para SPA routing (fallback para `index.html`).
 
 - Sprint 7 — Limpeza e Manutenção
-	- Remoção de dependência “lovable-tagger” (código e package.json).
 	- Build de produção validado sem o plugin.
 
 ## 7) Qualidade e Verificações

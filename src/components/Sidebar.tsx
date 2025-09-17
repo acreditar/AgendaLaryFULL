@@ -31,7 +31,7 @@ export default function Sidebar({ activeTab, onTabChange }: SidebarProps) {
 
   return (
     <div className={cn(
-      "bg-card border-r border-border h-screen flex flex-col transition-all duration-300",
+      "bg-card border-r border-border h-full md:h-screen flex flex-col transition-all duration-300",
       isCollapsed ? "w-16" : "w-64"
     )}>
       {/* Header */}
