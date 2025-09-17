@@ -34,7 +34,7 @@ export default defineConfig(({ mode }) => ({
         });
       }
     },
-  // lovable-tagger removed
+    // lovable-tagger removed
   ].filter(Boolean),
   resolve: {
     alias: {
